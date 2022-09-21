@@ -25,7 +25,7 @@ function stockButton(){
 }
 function categoriaButton(){
 
-        echo '<a class="btn btn-success btn-sm" href="categoriaCargar.php">Nuevo&nbsp;</a>&nbsp';
+        echo '<a class="btn btn-success btn-sm" href="categoriaCargar.php">Nuevo&nbsp;</a>&nbsp;';
         echo '<a class="btn btn-secondary btn-sm" href="categoriaModificar.php">Editar&nbsp;</a>&nbsp';
         echo '<a class="btn btn-danger btn-sm" href="categoriaEliminar.php">Eliminar&nbsp;</a>&nbsp';
 }
@@ -34,7 +34,7 @@ function appButton(){
     echo '<a class="btn btn-secondary btn-sm" href="ProductoAgregar.php">&nbsp;Agregar Producto &nbsp;</a>&nbsp'
     .'<a class="btn btn-secondary btn-sm" href="clienteCargar.php">&nbsp;Agregar Cliente &nbsp;</a>&nbsp'
     .'<a class="btn btn-primary btn-sm" href="app.php">&nbsp;Lista General &nbsp;</a>&nbsp' 
-  .'<a class="btn btn-primary btn-sm" href="appSuelto.php">&nbsp;Lista De Sueltos &nbsp;</a>&nbsp'; 
+  .'<a class="btn btn-primary btn-sm" href="appSuelto.php">&nbsp;Lista De Sueltos &nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;'; 
 }
 
 function nuevoCliente(){

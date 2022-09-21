@@ -205,17 +205,24 @@ function guardarstock($id_art, $cantidad,$proveedor,$minimo)
     $sentencia = $bd->prepare("INSERT INTO stock (id_stock, id_articulo, cantidad, id_proveedor,stockMinimo) VALUES (NULL, ?,?, ?,?);");
     return $sentencia->execute([$id_art,$cantidad, $proveedor, $minimo]);
 }
-function obtenerProductos_buscar($buscar)
+function obtenerProductosBuscar($buscar)
 {    
     $bd = obtenerConexion();
-    $sql_obtener = "SELECT articulo.id_articulo, articulo.nombre,concat(articulo.presentacion, \" - \", unidadmedida.umedida) as tamanio, tipoart.tipoArti, articulo.precio_inicial, articulo.precio_final, articulo.limites_descuento,"
-    ."  unidadcantidad.unidadVenta as id_unidadVenta, stock.cantidad,stock.stockMinimo, articulo.detalles,articulo.caducidad, articulo.activo  \n"
-    . "FROM articulo INNER JOIN stock ON articulo.id_articulo = stock.id_articulo "
-    ." INNER JOIN tipoart ON tipoart.id_tipoArt = articulo.id_tipo \n"
-    . "  INNER JOIN unidadmedida on unidadmedida.id_unidad=articulo.id_unidad\n"
-    . " INNER JOIN unidadcantidad on articulo.id_unidadVenta=unidadcantidad.id "
-    ." WHERE articulo.activo = 1 and articulo.nombre LIKE '%".$buscar. "%' OR articulo.detalles LIKE '%".$buscar. "%' OR tipoart.tipoArti LIKE '%".$buscar. "%';";
-    $sentencia = $bd->query($sql_obtener);
+    $sql = "SELECT articulo.id_articulo, articulo.nombre,concat(articulo.presentacion, \" - \", unidadmedida.umedida) as tamanio, \n"
+    . "	tipoart.tipoArti,\n"
+    . "     articulo.precio_inicial, articulo.precio_final,"
+    . "     articulo.limites_descuento,\n"
+    . "     unidadcantidad.unidadVenta as id_unidadVenta," 
+    . "     stock.cantidad,stock.stockMinimo, \n"
+    . "     articulo.detalles,articulo.caducidad, articulo.activo," 
+    . "     unidadmedida.umedida,articulo.presentacion,unidadcantidad.id as uv ,suelto"
+    . "     FROM articulo INNER JOIN\n"
+    . "      stock ON articulo.id_articulo = stock.id_articulo INNER JOIN\n"
+    . "      tipoart ON tipoart.id_tipoArt = articulo.id_tipo\n"
+    . "      INNER JOIN unidadcantidad on articulo.id_unidadVenta=unidadcantidad.id\n"
+    . "      INNER JOIN unidadmedida on unidadmedida.id_unidad=articulo.id_unidad\n"
+    . " WHERE articulo.activo = 1 and articulo.nombre LIKE '%".$buscar. "%' OR articulo.detalles LIKE '%".$buscar. "%' OR tipoart.tipoArti LIKE '%".$buscar. "%';";
+    $sentencia = $bd->query($sql);
     return $sentencia->fetchAll();
 }
 function cambiarPrecio($id,$pI,$pF)
