@@ -148,7 +148,7 @@ if (!isset($_SESSION["idUsuario"])) {
   </nav>
 </header>
 
-<section class="contenido wrapper ">
+<section class="contenido wrapper " id="primera-seccion">
   <div class="container position-relative card" >
   <div class="card-header">
           <h3>Venta - Selecionar Articulos</h3>
@@ -263,7 +263,7 @@ if (!isset($_SESSION["idUsuario"])) {
 </section>
 
 <br>
-<section >
+<section id="segunda-seccion" >
       <div  class="container position-relative card">
         
         <div class="card-header">
@@ -319,6 +319,15 @@ if (!isset($_SESSION["idUsuario"])) {
                                   $Total=$Total+$producto->precio_final*$b;
                 ?>
                   </td>
+                  <td>
+                    <form action="carritoEliminar.php" method="post">
+                        <input type="hidden" name="id_producto" value="<?php echo $producto->id_articulo?>">
+                        <span class="btn btn-info btn-sm"><i class="fa fa-check"></i>&nbsp;En el carrito </span>
+                        </td>
+                        <td>
+                              <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>&nbsp;Quitar</button>
+                          </form>
+                        </td>
                 </tr>       
                  <?php
                 }
@@ -342,4 +351,5 @@ if (!isset($_SESSION["idUsuario"])) {
 
       </div>
 </section>
+<a href="ventaPreparacion.php" class="btn-flotante">Vender</a>
 <?php include_once('footer.php'); ?>

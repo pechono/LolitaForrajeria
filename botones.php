@@ -34,7 +34,9 @@ function appButton(){
     echo '<a class="btn btn-secondary btn-sm" href="ProductoAgregar.php">&nbsp;Agregar Producto &nbsp;</a>&nbsp'
     .'<a class="btn btn-secondary btn-sm" href="clienteCargar.php">&nbsp;Agregar Cliente &nbsp;</a>&nbsp'
     .'<a class="btn btn-primary btn-sm" href="app.php">&nbsp;Lista General &nbsp;</a>&nbsp' 
-  .'<a class="btn btn-primary btn-sm" href="appSuelto.php">&nbsp;Lista De Sueltos &nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;'; 
+    .'<a class="btn btn-primary btn-sm" href="appSuelto.php">&nbsp;Lista De Sueltos &nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+    ."<a href='#primera-seccion' class='btn btn-primary btn-sm'>Lista De Articulos</a>&nbsp;&nbsp;"
+    ."<a href='#segunda-seccion' class='btn btn-primary btn-sm'>Articulos Seleccionados</a>"; 
 }
 
 function nuevoCliente(){
