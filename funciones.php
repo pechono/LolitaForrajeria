@@ -15,7 +15,7 @@ function obtenerProductos()
     . "     unidadcantidad.unidadVenta as id_unidadVenta," 
     . "     stock.cantidad,stock.stockMinimo, \n"
     . "     articulo.detalles,articulo.caducidad, articulo.activo," 
-    . "     unidadmedida.umedida,articulo.presentacion,unidadcantidad.id as uv ,suelto"
+    . "     unidadmedida.umedida,articulo.presentacion,unidadcantidad.id as uv ,suelto,tipoart.id_tipoArt,unidadcantidad.id,unidadmedida.id_unidad "
     . "     FROM articulo INNER JOIN\n"
     . "      stock ON articulo.id_articulo = stock.id_articulo INNER JOIN\n"
     . "      tipoart ON tipoart.id_tipoArt = articulo.id_tipo\n"
@@ -510,7 +510,7 @@ function suelto()
 }
 function abrirSuelto($id)
 {
-    $bd = obtenerConexion();
+   /* $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
     $p=obtenerProductos($id);
     $agr=0;
@@ -527,7 +527,8 @@ function abrirSuelto($id)
    // $bd = obtenerConexion();
     //iniciarSesionSiNoEstaIniciada();
     $sentencia = $bd->prepare("INSERT INTO `suelto`(`id_suelto`, `id_articulo`, `fecha`) VALUES (NULL,?,?)");
-    return $sentencia->execute([$id,$hoy]);    
+    return $sentencia->execute([$id,$hoy]);
+    */    
 }
 function unidadMedida()
 {

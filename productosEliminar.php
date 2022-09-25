@@ -224,16 +224,9 @@ include_once "funciones.php";
                                                 document.getElementById("msj").value = mensaje;
                                             }
                                 </script>  
-                                
-                             
-                                
                                 <button class="btn btn-danger btn-sm" onclick="vT(<?php echo $producto->id_articulo; ?>)">
-
                                     Eliminar
-                                </button>  
-                                                                                                          
-                                                                            
-                            
+                                </button>   
                         </td>
                         <?php 
                 } ?>
