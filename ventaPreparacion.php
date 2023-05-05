@@ -130,9 +130,7 @@
                       <tr>
                       <th>Seleccionar Cliente</th>
                       <th colspan=4> Seleccionar Forma de pago</th>
-                      <th>Total Sin Descuento</th>
-                      <th>Total Con descuento</th>
-                      <th>Descuento en Pesos</th>
+                      
                       </tr>
                   </thead>
                   <tbody>
@@ -148,7 +146,7 @@
                               } ?>
                         </select>
                       </th>
-                      <th colspan=4>
+                      <th colspan=3>
                         <?php
                         $pagos = tipopago();
                         foreach ($pagos as $pago) 
@@ -178,22 +176,38 @@
                         } ?>
                       </th>
 
-                      <th>  <?php echo number_format($Total, 2) ?></th>
-                      <td><input type="text"  size="5px"  id="totaldesc" value="0"   size="15px"    disabled="disabled" ></td>
-                      <td><input type="text"  size="5px" name="desc"  id="total" value=0   size="15px" ></td>
+                      
+                      </tr>
+                      <tr>
+                      <th>Total Sin Descuento</th>
+                      <th>Total Con descuento</th>
+                      <th colspan="2">Descuento en Pesos</th>
+                      </tr>
+
+                      <tr>
+                        <th><?php echo number_format($Total, 2) ?></th>
+                        <td><input type="text"  size="5px"  id="totaldesc" value="0"   size="15px"    disabled="disabled" ></td>
+                        <td  colspan="2"><input type="text"  size="5px" name="desc"  id="total" value=0   size="15px" ></td>
                      
                     </tr>
                     <tr>
-                          <th colspan=1>Detalles de Operacion</th>
+                          <th colspan=2>Detalles de Operacion</th>
                           <th colspan=2 text-align="right">Entrega en cuenta corriente</th>
-                          <td colspan=2><input type="text"  size="5px" name="entrega"  id="entrega"    size="15px"value="0"></td>
                         
-                          <th colspan=2>Detalles de Descuento</th> 
+                          
 
                     </tr>
                     <tr>
-                      <th colspan=5><textarea name="detallesop" rows="2" cols="80"  placeholder="Detalles" value="-"></textarea></th>
+                      <th colspan=3><textarea name="detallesop" rows="2" cols="60"  placeholder="Detalles" value="-"></textarea></th>
+                      <td colspan=1><input type="text"  size="5px" name="entrega"  id="entrega"    size="15px"value="0"></td>
+
+                    </tr>
+                    <tr>
+                      <th colspan=2>Detalles de Descuento</th> 
+                    </tr>
+                    <tr>
                       <th colspan=4><textarea name="detallesdes" rows="2" cols="60"  placeholder="Detalles" value="-"></textarea></th>
+
                     </tr>
                   </tbody>
 

@@ -17,8 +17,13 @@ if (isset($_POST['cant_art']) && isset($_POST['id_producto'])) {
         echo "jjjjjjjj". count($_SESSION["carrito"]);
         array_push($_SESSION['carrito'],array($id,$cantidad));
     }
-    header('Location: app.php');
-    die();
+    if($_POST["flex"]=="flex"){
+        header('Location: app-flex.php');
+        die();
+    }else{
+         header('Location: app.php');
+         die();
+    }
     
     
 }else{

@@ -1,7 +1,11 @@
 <?php
-include_once"funciones.php";
+echo $_POST["usuario"];
+echo $_POST["pass"];
+echo $_POST["turno"];
 
-if (!isset($_POST["usuario"]) && !isset($_POST["pass"]) && iseet(["turno"])) {
+include_once "funciones.php";
+
+if (!isset($_POST["usuario"]) && !isset($_POST["pass"]) && isset($_POST["turno"])) {
     exit("usuario o clave no registarda correctamente");
 } else 
 {
@@ -31,8 +35,6 @@ if (!isset($_POST["usuario"]) && !isset($_POST["pass"]) && iseet(["turno"])) {
       }
      
 }
-/*
-
 
 
   ?>

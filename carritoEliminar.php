@@ -22,7 +22,13 @@ if (isset($_POST['id_producto'])) {
     }
         
     if($re==0){
-        header('Location: app.php');
+        if($_POST["flex"]=="flex"){
+            header('Location: app-flex.php');
+            die();
+        }else{
+            header('Location: app.php');
+            die();
+        }
     }else{
         header('Location: ventaPreparacion.php');
     }
